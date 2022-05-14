@@ -1,0 +1,14 @@
+{
+"Messages":[
+      {
+         "id": 1,
+         "message": "Hello",
+         "user": "Francisco"
+    },
+      {
+         "id": 2,
+         "message": "Hey",
+         "user": "Damian"
+      }
+   ]
+}

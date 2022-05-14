@@ -1,10 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import MainChat from "./MainChat";
+import { Form } from "react-bootstrap";
 
 function Login() {
     const [username, setUsername] = useState("")
     const [submitted, setSubmitted] = useState(false)
     const [message, setMessage] = useState("")
+
+    useEffect(() => {
+        fetch('http://localhost:3000/Messages')
+        .then((r) => r.json())
+        .then((data) => setMessage(data))
+    }, [])
+
+    console.log(message)
 
     function usernameChange(event) {
         event.preventDefault()
@@ -21,19 +30,15 @@ function Login() {
 
     return (
         <div>
-            <form onSubmit={submitForm}>
-                <h1>Welcome to React Chat App!</h1>
+            <h1>Welcome to React Chat App!</h1>
                 <h3>Please Create an Account!</h3>
-                <label htmlFor="username">Username: </label>
-                <input
-                    type="textbox"
-                    placeholder="Enter a username..."
-                    onChange={usernameChange}
-                    required
-                >
-                </input>
+                    <Form onSubmit={submitForm}>
+                        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                            <Form.Label>Username:</Form.Label>
+                            <Form.Control type="text" placeholder="Please provide a username..." />
+                        </Form.Group>
                 <button>Submit</button>
-            </form>
+            </Form>
         </div>
     )
 }
