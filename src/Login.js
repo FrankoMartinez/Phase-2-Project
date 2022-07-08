@@ -1,32 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import MainChat from "./MainChat";
 import { Form } from "react-bootstrap";
 
 function Login() {
-    const [username, setUsername] = useState("")
-    const [submitted, setSubmitted] = useState(false)
-    const [message, setMessage] = useState("")
+    const [submitted, setSubmitted] = useState(false);
+    const [message, setMessage] = useState("");
+    const [error, setError] = useState("");
 
-    useEffect(() => {
-        fetch('http://localhost:3000/Messages')
-        .then((r) => r.json())
-        .then((data) => setMessage(data))
-    }, [])
-
-    console.log(message)
-
-    function usernameChange(event) {
-        event.preventDefault()
-        setUsername(event.target.value)
+    function handleOnChange(e) {
+        e.preventDefault();
+        setMessage(e.target.value);
     }
 
-    function submitForm() {
+    function submitForm(e) {
+        e.preventDefault();
         setSubmitted(submitted => submitted = true)
+        setError("Please enter a username")
     }
-
-    if (submitted === true) {
-        return <MainChat username={username} message={message} setMessage={setMessage}/>
-    }
+    console.log(submitted)
 
     return (
         <div>
@@ -35,7 +26,13 @@ function Login() {
                     <Form onSubmit={submitForm}>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                             <Form.Label>Username:</Form.Label>
-                            <Form.Control type="text" placeholder="Please provide a username..." />
+                            <Form.Control 
+                            type="text" 
+                            placeholder="Please provide a username..." 
+                            value={message} 
+                            onChange={handleOnChange}
+                            />
+                            {submitted && message != "" ? <MainChat /> : error}
                         </Form.Group>
                 <button>Submit</button>
             </Form>

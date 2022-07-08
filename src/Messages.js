@@ -1,17 +1,10 @@
 import React from "react";
 import Message from "./Message";
 
-function Messages({message, setMessage}) {
+function Messages({messages}) {
     return (
         <div>
-            <Message message={message}/>
-            <label>Message:</label>
-            <input 
-            onChange={(e) => setMessage(e.target.value)}
-            type="text"
-            required
-            >
-            </input>
+            <Message messages={messages}/>
         </div>
     )
 }

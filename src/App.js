@@ -1,10 +1,16 @@
 import Login from "./Login";
-import { Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+import MainChat from "./MainChat";
+import HomepPage from "./HomePage";
 
 function App() {
   return (
     <div>
-      <Login />
+      <Routes>
+        <Route path="/" element={<HomepPage />} />
+        <Route path="/Login" element={<Login />} />
+        <Route path="/MainChat" element={<MainChat />} />
+      </Routes>
     </div>
   );
 }
