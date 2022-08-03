@@ -1,15 +1,13 @@
 import Login from "./Login";
 import { Routes, Route } from "react-router-dom";
-import MainChat from "./MainChat";
-import HomepPage from "./HomePage";
+import MainPage from "./MainPage";
 
 function App() {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<HomepPage />} />
-        <Route path="/Login" element={<Login />} />
-        <Route path="/MainChat" element={<MainChat />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/MainPage" element={<MainPage />} />
       </Routes>
     </div>
   );

@@ -1,3 +1,3 @@
 #Title
 
-Welcome to my React Chat App
+Welcome to my Simple To-Do List App
