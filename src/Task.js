@@ -1,12 +1,14 @@
 import React from "react";
 
 function Task({tasks}) {
+    //Map through tasks
     const tasksDisplayed = tasks.map((task) => {
         return (
             <div key={task.id}>
                 <h3>{task.task}</h3>
                 <input 
                 type="checkbox"
+                value={task.comple}
                 >
                 </input>
             </div>
@@ -14,18 +16,38 @@ function Task({tasks}) {
     })
     console.log(tasksDisplayed)
 
+    //Functionality of button when clicked add task
+    function addTask() {
+        const form = {
+            id : "",
+            task: "",
+            completed: ""
+        }
+        fetch("http://localhost:3004/Tasks", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(form),
+        })
+        .then(response => response.json())
+        .then(data => data)
+    }
+
+    //Styling
     const ulStyling = {
         listStyleType: "none",
         margin: 0,
         padding: 0,
-        overflow: "hidden"
+        overflow: "hidden",
+        backgroundColor: "#90ee90"
     }
 
     const liStyling = {
         textTransform: "uppercase",
         fontWeight: "bold",
         paddingBottom: 5,
-        position: "relative",
+        position: "center",
         textAlign: "center",
         float: "left", 
         padding: 5,
