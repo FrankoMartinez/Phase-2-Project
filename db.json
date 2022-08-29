@@ -1,41 +1,46 @@
 {
-     "users": [
-          {
-               "id":1,
-               "name": "John",
-               "tasks": [1,2]
-          },
-          {
-               "id":2,
-               "name": "Ken",
-               "tasks": [3,4]
-          }
-     ],
-     "tasks": [
-     {
-          "id": 1,
+  "users": [
+    {
+      "id": 1,
+      "name": "John",
+      "tasks": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Ken",
+      "tasks": [
+        3,
+        4
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Franko",
+      "tasks": [
+        {
           "task": "Do my bed",
           "completed": true
-     },
-     {
-          "id": 2,
+        },
+        {
           "task": "Take dog on walk",
           "completed": true
-     },
-     {
-          "id": 3,
+        },
+        {
           "task": "Workout",
           "completed": false
-     },
-     {
-          "id": 4,
+        },
+        {
           "task": "Shower",
           "completed": false
-     },
-     {
-          "id": 5,
+        },
+        {
           "task": "Check Emails",
           "completed": false
-     }
-     ]
+        }
+      ]
+    }
+  ]
 }

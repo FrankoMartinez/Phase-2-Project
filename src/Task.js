@@ -55,15 +55,20 @@ function Task({tasks}) {
     }
 
     return (
-        <div>
+        <>
+            <input
+            type="text"
+            placeholder="Add task"
+            >
+            </input>
+            <button type="Submit">Add Task</button>
             <ul style={ulStyling}>
                 <li style={liStyling}>All</li>
                 <li style={liStyling}>Pending</li>
                 <li style={liStyling}>Completed</li>
             </ul>
             {tasksDisplayed}
-            <button type="Submit">Add Task</button>
-        </div>
+        </>
     )
 }
 

@@ -5,16 +5,16 @@ function MainPage({}) {
   const [tasks, setTasks] = useState([])
 
   useEffect(() => {
-    fetch('http://localhost:3004/tasks')
+    fetch('http://localhost:3004/users')
     .then((r) => r.json())
     .then((data) => setTasks(data))
 }, [])
 
     return (
-        <div>
+        <>
             <h1>Tasks</h1>
             <Tasks tasks={tasks} />
-        </div>
+        </>
     )
 }
 
